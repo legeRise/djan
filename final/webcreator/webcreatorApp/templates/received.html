@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Video Created</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #007BFF;
+        }
+
+        .download-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50; /* Green */
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            text-align: center;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.1s ease; /* Add transitions for smooth effect */
+        }
+
+        .download-button:hover {
+            background-color: #45a049; /* Darker Green on Hover */
+            transform: scale(1.05); /* Scale up on hover for a visual effect */
+        }
+
+        .download-button:active {
+            background-color: #4CAF50; /* Restore original color on Click/Press */
+            transform: scale(0.95); /* Scale down on Click/Press for a pressed effect */
+        }
+
+        /* Style for video player */
+        video {
+            max-width: 100%; /* Set the maximum width to ensure responsive resizing */
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Video Has Been Created Successfully</h1>
+        
+        <!-- Video player with fallback content -->
+        <video controls width="300" height="600">
+            <source src="{{ MEDIA_URL }}{{ user_id }}/{{title}}.mp4" type="video/mp4">
+            Your browser does not support the video tag. Please download the video using the link below.
+        </video>
+        
+        <br>
+        <a href="{{ MEDIA_URL }}{{ user_id }}/{{title}}.mp4" class='download-button' download>Download Video</a>
+    </div>
+</body>
+</html>
